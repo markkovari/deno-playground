@@ -1,3 +1,7 @@
 # deno-playground
 
-if you don't want to make big mistakes run the app with docker-compose up or run in the background with the `-d` flag to run in detached mode
+## Run the application with docker-compose
+`docker-compose up --build --force-recreate` (since the file watcher does not work with 0.35.0 deno yet)
+
+
+to run in detached mode add the `-d` flag after the command above
