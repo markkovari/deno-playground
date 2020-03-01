@@ -1,11 +1,9 @@
-import { serve } from "https://deno.land/std@v0.35.0/http/server.ts";
+import { abc } from "https://deno.land/x/abc/mod.ts";
 
-const s = serve({ port: 8000 });
+const app = abc();
 
-console.log("http://localhost:8000/");
-
-
-for await (const req of s) {
-  req.respond({ body: "Hello World\n" });
-}
-
+app
+  .get("/hello", c => {
+    return "Hello, Abc!";
+  })
+  .start({ port: 8000 });
