@@ -1,7 +1,14 @@
-version: "3"
+version: "3.7"
 services:
   app:
-    image: maxmcd/deno:slim
+    build:
+      context: ./
+      dockerfile: Dockerfile
+      args:
+        DENO_VERSION: 0.35.0
+    image: maxmcd/deno:jessie
     volumes:
-    - "./app:/opt"
-    command: deno /opt/app.ts
+      - "./app:/app"
+    command: deno run --allow-net app/app.ts
+    ports:
+      - "8000:8000"
