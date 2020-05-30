@@ -6,9 +6,17 @@ services:
       dockerfile: Dockerfile
       args:
         DENO_VERSION: 0.35.0
-    image: maxmcd/deno:jessie
+    image: docker.pkg.github.com/markkovari/deno-template/image:latest
     volumes:
       - "./app:/app"
     command: deno run --allow-net app/app.ts
     ports:
       - "8000:8000"
+
+    # without the created image
+    # image: maxmcd/deno:jessie
+    # volumes:
+    #   - "./app:/app"
+    # command: deno run --allow-net app/app.ts
+    # ports:
+    #   - "8000:8000"
